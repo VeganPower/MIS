@@ -53,7 +53,7 @@ inline double min(double a, double b)
     return a <= b ? a : b;
 }
 
-inline double TorroidalDistance(double a, double b)
+inline double ToroidalDistance(double a, double b)
 {
     double dist = abs(a - b);
     if (dist > 0.5)
@@ -78,7 +78,7 @@ void MakeBlueNoise(std::vector<double>& samples, size_t sampleCount, int seed)
             double candidate = dist(rng);
             double minDist = FLT_MAX;
             for (size_t distIndex = 0; distIndex < sampleIndex; ++distIndex)
-                minDist = min(minDist, TorroidalDistance(candidate, samples[distIndex]));
+                minDist = min(minDist, ToroidalDistance(candidate, samples[distIndex]));
 
             if (minDist > bestCandidateScore)
             {
